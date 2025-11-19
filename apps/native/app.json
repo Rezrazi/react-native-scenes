@@ -1,0 +1,17 @@
+{
+	"expo": {
+		"scheme": "better-native-scenes",
+		"userInterfaceStyle": "automatic",
+		"orientation": "default",
+		"web": {
+			"bundler": "metro"
+		},
+		"name": "better-native-scenes",
+		"slug": "better-native-scenes",
+		"plugins": ["expo-font"],
+		"experiments": {
+			"typedRoutes": true,
+			"reactCompiler": true
+		}
+	}
+}
