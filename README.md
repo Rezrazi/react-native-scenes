@@ -6,9 +6,9 @@ An open-source component library for React Native, inspired by [shadcn/ui](https
 
 To preview the project, scan the QR code below to open it in the Expo Go app.
 
-![Preview](https://qr.expo.dev/eas-update?slug=exp&projectId=22f271a2-444f-4105-b6f9-f228a0c8686a&groupId=f1fd5f2f-3d77-49b1-9fd2-6511f1985c98&host=u.expo.dev)
+![Preview](https://qr.expo.dev/eas-update?slug=exp&projectId=18ca9efb-83cb-41ab-8fd7-295d396b8f3e&groupId=f1fd5f2f-3d77-49b1-9fd2-6511f1985c98&host=u.expo.dev)
 
-[Open in Expo Go (Mobile only)](exp+://expo-development-client/?url=https://u.expo.dev/22f271a2-444f-4105-b6f9-f228a0c8686a/group/f1fd5f2f-3d77-49b1-9fd2-6511f1985c98)
+[Open in Expo Go (Mobile only)](exp+://expo-development-client/?url=https://u.expo.dev/18ca9efb-83cb-41ab-8fd7-295d396b8f3e/group/f1fd5f2f-3d77-49b1-9fd2-6511f1985c98)
 
 ## Credits
 

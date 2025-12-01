@@ -15,7 +15,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "22f271a2-444f-4105-b6f9-f228a0c8686a"
+        "projectId": "18ca9efb-83cb-41ab-8fd7-295d396b8f3e"
       }
     },
     "owner": "charaf.rezrazi",
@@ -23,7 +23,7 @@
       "policy": "appVersion"
     },
     "updates": {
-      "url": "https://u.expo.dev/22f271a2-444f-4105-b6f9-f228a0c8686a"
+      "url": "https://u.expo.dev/18ca9efb-83cb-41ab-8fd7-295d396b8f3e"
     },
     "android": {},
     "ios": {}
