@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "login",
+  "type": "registry:block",
+  "title": "Login",
+  "description": "A minimal authentication screen with email/password inputs",
+  "registryDependencies": [
+    "@react-native-scenes/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/login.tsx",
+      "content": "/**\n * @title Login\n * @description A minimal authentication screen with email/password inputs\n * @categories authentication\n */\n\nimport type { ReactNode } from \"react\";\nimport { Text, View, type ViewProps } from \"react-native\";\nimport { cn } from \"@/lib/utils\";\n\nexport type LoginProps = {\n  children: ReactNode;\n};\n\nconst LoginRoot = ({ children, className, ...props }: LoginProps & ViewProps) => (\n  <View {...props} className={cn(\"flex-1 gap-8 px-8\", className)}>\n    {children}\n  </View>\n);\n\nconst LoginHeader = ({ className, children, ...props }: ViewProps) => (\n  <View className={cn(\"gap-2\", className)} {...props}>\n    {children}\n  </View>\n);\n\ntype LoginTextProps = {\n  children: ReactNode;\n} & Omit<ViewProps, \"children\">;\n\nconst LoginTitle = ({ className, children, ...props }: LoginTextProps) => (\n  <Text className={cn(\"text-left font-bold text-3xl text-foreground\", className)} {...props}>\n    {children}\n  </Text>\n);\n\nconst LoginDescription = ({ className, children, ...props }: LoginTextProps) => (\n  <Text className={cn(\"text-left text-muted\", className)} {...props}>\n    {children}\n  </Text>\n);\n\nconst LoginContent = ({ className, children, ...props }: ViewProps) => (\n  <View className={cn(\"gap-4\", className)} {...props}>\n    {children}\n  </View>\n);\n\nconst LoginFooter = ({ className, children, ...props }: ViewProps) => (\n  <View className={cn(\"gap-4\", className)} {...props}>\n    {children}\n  </View>\n);\n\nexport const Login = Object.assign(LoginRoot, {\n  Header: LoginHeader,\n  Title: LoginTitle,\n  Description: LoginDescription,\n  Content: LoginContent,\n  Footer: LoginFooter,\n});\n",
+      "type": "registry:block",
+      "target": "components/blocks/login.tsx"
+    }
+  ],
+  "categories": [
+    "authentication",
+    "login"
+  ]
+}

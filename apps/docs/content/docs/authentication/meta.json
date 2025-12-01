@@ -1,0 +1,5 @@
+{
+  "title": "Authentication",
+  "pages": ["login", "register", "phone-number", "otp", "forgot-password"]
+}
+

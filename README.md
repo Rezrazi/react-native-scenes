@@ -1,54 +1,24 @@
-# better-native-scenes
+# React Native Scenes
 
-This project was created with [Better-T-Stack](https://github.com/AmanVarshney01/create-better-t-stack), a modern TypeScript stack.
+An open-source component library for React Native, inspired by [shadcn/ui](https://ui.shadcn.com).
 
-## Features
+## Preview in Expo Go
 
-- **TypeScript** - For type safety and improved developer experience
-- **React Native** - Build mobile apps using React
-- **Expo** - Tools for React Native development
-- **TailwindCSS** - Utility-first CSS for rapid UI development
-- **shadcn/ui** - Reusable UI components
-- **Biome** - Linting and formatting
-- **Husky** - Git hooks for code quality
-- **Turborepo** - Optimized monorepo build system
+To preview the project, scan the QR code below to open it in the Expo Go app.
 
-## Getting Started
+![Preview](https://qr.expo.dev/eas-update?slug=exp&projectId=22f271a2-444f-4105-b6f9-f228a0c8686a&groupId=f1fd5f2f-3d77-49b1-9fd2-6511f1985c98&host=u.expo.dev)
 
-First, install the dependencies:
+[Open in Expo Go (Mobile only)](exp+://expo-development-client/?url=https://u.expo.dev/22f271a2-444f-4105-b6f9-f228a0c8686a/group/f1fd5f2f-3d77-49b1-9fd2-6511f1985c98)
 
-```bash
-bun install
-```
+## Credits
 
+React Native Scenes is built on top of base UI components from [heroui-native](https://github.com/heroui-inc/heroui-native).
 
-Then, run the development server:
+## Attributions
 
-```bash
-bun run dev
-```
+Some illustrations used in this project are sourced from [DrawKit](https://www.drawkit.com/) and are subject to their
+license.
 
-Use the Expo Go app to run the mobile application.
+## License
 
-
-
-
-
-
-
-## Project Structure
-
-```
-better-native-scenes/
-├── apps/
-│   ├── native/      # Mobile application (React Native, Expo)
-```
-
-## Available Scripts
-
-- `bun run dev`: Start all applications in development mode
-- `bun run build`: Build all applications
-- `bun run dev:web`: Start only the web application
-- `bun run check-types`: Check TypeScript types across all apps
-- `bun run dev:native`: Start the React Native/Expo development server
-- `bun run check`: Run Biome formatting and linting
+This project is licensed under the MIT License.  

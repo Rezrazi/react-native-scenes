@@ -1,0 +1,17 @@
+appId: host.exp.Exponent
+tags:
+  - onboarding
+---
+- launchApp
+- tapOn: react-native-scenes
+- tapOn: Onboarding Slider
+- startRecording: onboarding_onboarding-slider
+- takeScreenshot: onboarding_onboarding-slider-1
+- tapOn: Next
+- takeScreenshot: onboarding_onboarding-slider-2
+- tapOn: Next
+- takeScreenshot: onboarding_onboarding-slider-3
+- tapOn: Next
+- takeScreenshot: onboarding_onboarding-slider-4
+- stopRecording
+- stopApp

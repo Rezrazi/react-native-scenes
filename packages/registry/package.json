@@ -1,0 +1,27 @@
+{
+  "name": "@react-native-scenes/registry",
+  "description": "React Native Scenes Registry",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "registry:build": "shadcn build -o ../../apps/docs/public/r/",
+    "clean": "rm -rf node_modules"
+  },
+  "type": "module",
+  "version": "0.1.0",
+  "devDependencies": {
+    "@react-native-scenes/config": "workspace:*",
+    "@types/react": "~19.1.0",
+    "react": "19.1.0",
+    "react-native": "0.81.5",
+    "shadcn": "^3.5.0"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "dependencies": {
+    "@rn-primitives/label": "^1.2.0",
+    "@rn-primitives/slot": "^1.2.0"
+  }
+}

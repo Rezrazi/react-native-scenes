@@ -1,0 +1,247 @@
+---
+title: Installation
+description: Learn how to add react-native-scenes components to your React Native project
+icon: PackageOpen
+---
+
+import {Callout} from "fumadocs-ui/components/callout";
+import {Step, Steps} from 'fumadocs-ui/components/steps';
+
+## Prerequisites
+
+react-native-scenes components are built on top of [heroui-native](https://github.com/heroui-inc/heroui-native), which requires **[Uniwind](https://docs.uniwind.dev)** for styling.
+
+<Callout type="info">
+  **Alternative:** If you prefer to use [NativeWind](https://www.nativewind.dev/) instead of Uniwind, you can do so by updating the component implementations to be compatible with NativeWind's API.
+</Callout>
+
+## Installation Methods
+
+There are two ways to add components from react-native-scenes to your project:
+
+1. **Using the shadcn CLI** (Recommended) - Automated installation
+2. **Manual copy-paste** - Copy component code directly
+
+## Using the shadcn CLI
+
+The shadcn CLI provides the fastest way to add components to your project.
+
+<Steps>
+  <Step>
+    ### Set up Uniwind
+
+    If you haven't already set up Uniwind, follow the [Uniwind installation guide](https://docs.uniwind.dev/getting-started/installation).
+
+    Uniwind is required for the heroui-native components that react-native-scenes is built on.
+  </Step>
+  <Step>
+    ### Install required dependencies
+
+    Install the required peer dependencies:
+
+    ```npm
+    npm i class-variance-authority clsx tailwind-merge
+    ```
+  </Step>
+  <Step>
+    ### Initialize shadcn in your project
+
+    If you haven't already set up shadcn in your React Native project, run:
+
+    ```npm
+    npx shadcn@latest init
+    ```
+
+    Follow the prompts to configure your project. This will create a `components.json` configuration file in your
+    project root.
+
+    <Callout>
+      The CLI will ask you about your project structure. Make sure to configure the paths correctly for your React
+      Native
+      project (e.g., `components`, `lib`, etc.).
+    </Callout>
+  </Step>
+  <Step>
+    ### Add the registry to `components.json`
+
+    Add the react-native-scenes registry to your `components.json` configuration file:
+
+    ```json
+    {
+      "registries": {
+        "@react-native-scenes": "https://react-native-scenes.vercel.app/r/{name}.json"
+      }
+    }
+    ```
+  </Step>
+  <Step>
+    ### Add components
+
+    Install a scene or component from the react-native-scenes registry:
+
+    ```npm
+    npx shadcn@latest add @react-native-scenes/onboarding-slider
+    ```
+
+    The CLI will download the component files directly into your project based on your `components.json` configuration.
+
+  </Step>
+</Steps>
+
+## Custom Theme (Optional)
+
+If you want to implement your own theme instead of using heroui-native's default styles, you can define your own CSS variables. Here's the structure you need to follow:
+
+```css title="global.css"
+@import "tailwindcss";
+@import "uniwind";
+/* Note: heroui-native/styles import is omitted when using custom theme */
+
+@source "./app";
+@source "./components";
+@source "./node_modules/heroui-native/lib";
+
+@layer theme {
+  :root {
+    @variant light {
+      /* Base Colors */
+      --background: oklch(0.9702 0 0);
+      --foreground: var(--eclipse);
+
+      /* Surface: Used for non-overlay components (cards, accordions, disclosure groups) */
+      --surface: var(--white);
+      --surface-foreground: var(--foreground);
+
+      /* Overlay: Used for floating/overlay components (dialogs, popovers, modals, menus) */
+      --overlay: var(--white);
+      --overlay-foreground: var(--foreground);
+
+      --muted: oklch(55.2% 0.016 285.938);
+
+      --default: oklch(94% 0.001 286.375);
+      --default-foreground: var(--eclipse);
+
+      --accent: oklch(0.6204 0.195 253.83);
+      --accent-foreground: var(--snow);
+
+      /* Form Field Defaults - Colors */
+      --field-background: var(--white);
+      --field-foreground: oklch(0.2103 0.0059 285.89);
+      --field-placeholder: var(--muted);
+      --field-border: transparent; /* no border by default on form fields */
+
+      /* Status Colors */
+      --success: oklch(0.7329 0.1935 150.81);
+      --success-foreground: var(--eclipse);
+
+      --warning: oklch(0.7819 0.1585 72.33);
+      --warning-foreground: var(--eclipse);
+
+      --danger: oklch(0.6532 0.2328 25.74);
+      --danger-foreground: var(--snow);
+
+      /* Component Colors */
+      --segment: var(--white);
+      --segment-foreground: var(--eclipse);
+
+      /* Misc Colors */
+      --border: oklch(0 0 0 / 0%);
+      --divider: oklch(72% 0.004 286.32);
+      --link: var(--foreground);
+    }
+
+    @variant dark {
+      /* Base Colors */
+      --background: var(--black);
+      --foreground: var(--snow);
+
+      /* Surface: Used for non-overlay components (cards, accordions, disclosure groups) */
+      --surface: oklch(0.2103 0.0059 285.89);
+      --surface-foreground: var(--foreground);
+
+      /* Overlay: Used for floating/overlay components (dialogs, popovers, modals, menus) - lighter for contrast */
+      --overlay: oklch(0.2563 0.0058 271.19); /* Lighter than surface for visibility in dark mode */
+      --overlay-foreground: var(--foreground);
+
+      --muted: oklch(70.5% 0.015 286.067);
+
+      --default: oklch(27.4% 0.006 286.033);
+      --default-foreground: var(--snow);
+
+      --accent: oklch(0.6204 0.195 253.83);
+      --accent-foreground: var(--snow);
+
+      /* Form Field Defaults - Colors */
+      --field-background: var(--default);
+      --field-foreground: var(--foreground);
+      --field-placeholder: var(--muted);
+      --field-border: transparent; /* no border by default on form fields */
+
+      /* Status Colors */
+      --success: oklch(0.7329 0.1935 150.81);
+      --success-foreground: var(--eclipse);
+
+      --warning: oklch(0.8203 0.1388 76.34);
+      --warning-foreground: var(--eclipse);
+
+      --danger: oklch(0.594 0.1967 24.63);
+      --danger-foreground: var(--snow);
+
+      /* Component Colors */
+      --segment: oklch(0.3964 0.01 285.93);
+      --segment-foreground: var(--foreground);
+
+      /* Misc Colors */
+      --border: oklch(1 0 0 / 0%);
+      --divider: oklch(38% 0.006 286.033);
+      --link: var(--foreground);
+    }
+  }
+}
+```
+
+<Callout type="info">
+  These are the theme variables required by heroui-native components. You can customize the values to match your brand colors while maintaining the variable names.
+</Callout>
+
+## Manual Installation
+
+If you prefer to copy and paste components manually:
+
+<Steps>
+  <Step>
+    ### Install required dependencies
+
+    First, install the required peer dependencies:
+
+    ```bash
+    npm i class-variance-authority
+    ```
+  </Step>
+  <Step>
+    ### Browse the component
+
+    Visit the component page in the documentation and view its source code.
+  </Step>
+  <Step>
+    ### Copy the code
+
+    Copy the component code from the documentation.
+  </Step>
+  <Step>
+    ### Add to your project
+
+    Create the appropriate file in your project and paste the code. Make sure to:
+    - Create the necessary directory structure (e.g., `components/ui/blocks/onboarding-slider.tsx`)
+    - Update import paths if needed
+  </Step>
+  <Step>
+    ### Install additional dependencies (if needed)
+
+    Some components may require additional dependencies beyond the base packages. Check the component documentation for a list of required packages and install them:
+
+    ```npm
+    npm i [component-specific-dependencies]
+    ```
+  </Step>
+</Steps>

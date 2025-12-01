@@ -1,0 +1,70 @@
+---
+title: OTP Verification
+description: An OTP verification screen for validating phone numbers with a 6-digit code input.
+---
+
+<div className="mx-auto max-w-80">
+  <video
+          controls
+          muted
+          preload="metadata"
+          className="max-h-1/12"
+  >
+    <source
+            src="https://lpseojhqkl3oe38a.public.blob.vercel-storage.com/videos/authentication_authentication-phone.mp4"
+            type="video/mp4"
+    />
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<div className="flex flex-row gap-6">
+  <div className="">![Screenshot1](/screenshots/authentication_otp.png)</div>
+</div>
+
+## Installation
+
+
+import {Tabs} from "fumadocs-ui/components/tabs";
+
+Ensure you have the required UI components in your project:
+
+<Tabs items={['CLI', 'Manual']}>
+  <Tab>
+    ```npm
+    npx shadcn@latest add @react-native-scenes/auth-otp
+    ```
+  </Tab>
+
+  <Tab>
+    <include cwd lang="tsx" meta='title="components/blocks/auth.tsx"'>
+      ../../packages/registry/src/components/blocks/auth.tsx
+    </include>
+
+    <include cwd lang="tsx" meta='title="components/ui/otp.tsx"'>
+      ../../packages/registry/src/components/ui/otp.tsx
+    </include>
+  </Tab>
+</Tabs>
+
+## Usage
+
+<Callout type="info" title="Note">
+  This block uses `react-hook-form`, `zod`, and `@hookform/resolvers`
+</Callout>
+
+<Callout type="info" title="Auto-fill Support">
+  The OTP component supports auto-fill on iOS with `textContentType="oneTimeCode"` and on Android with
+  `autoComplete="sms-otp"` for seamless SMS code verification.
+</Callout>
+
+<include cwd lang="tsx" meta='title="pages/otp.tsx"'>
+  ../native/app/demo/auth/otp.tsx
+</include>
+
+## API Reference
+
+### OtpProps
+
+<AutoTypeTable path="../../packages/registry/src/components/ui/otp.tsx" name="OtpProps"/>
+

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "auth-bundle",
+  "type": "registry:block",
+  "title": "Authentication Bundle",
+  "description": "Complete authentication flow including login, register, phone verification, OTP, and password reset screens",
+  "registryDependencies": [
+    "@react-native-scenes/utils"
+  ],
+  "files": [
+    {
+      "path": "src/components/blocks/auth.tsx",
+      "content": "import type { ReactNode } from \"react\";\nimport { Text, View, type ViewProps } from \"react-native\";\nimport { cn } from \"@/lib/utils\";\n\nexport type AuthProps = {\n  children: ReactNode;\n};\n\nconst AuthRoot = ({ children, className, ...props }: AuthProps & ViewProps) => (\n  <View {...props} className={cn(\"flex-1 gap-8 px-8\", className)}>\n    {children}\n  </View>\n);\n\nconst AuthContent = ({ className, children, ...props }: ViewProps) => (\n  <View className={cn(\"gap-4\", className)} {...props}>\n    {children}\n  </View>\n);\n\nconst AuthActions = ({ className, children, ...props }: ViewProps) => (\n  <View className={cn(\"gap-4\", className)} {...props}>\n    {children}\n  </View>\n);\n\nconst AuthDivider = ({ children }: { children: string }) => (\n  <View className=\"flex-row items-center\">\n    <View className=\"h-[1px] flex-1 bg-muted/30\" />\n\n    <Text className=\"px-3 font-medium text-muted/70 text-sm\">{children}</Text>\n\n    <View className=\"h-[1px] flex-1 bg-muted/30\" />\n  </View>\n);\n\nexport const Auth = Object.assign(AuthRoot, {\n  Content: AuthContent,\n  Actions: AuthActions,\n  Divider: AuthDivider,\n});\n",
+      "type": "registry:ui",
+      "target": "components/blocks/auth.tsx"
+    },
+    {
+      "path": "src/components/ui/otp.tsx",
+      "content": "import type * as React from \"react\";\nimport { useCallback, useEffect, useState } from \"react\";\nimport { Platform, Pressable, StyleSheet, Text, TextInput, type TextInputProps, View } from \"react-native\";\nimport { cn } from \"@/lib/utils\";\n\nexport type OtpProps = Omit<TextInputProps, \"value\" | \"onChange\"> & {\n  value?: number[];\n  maxLength: number;\n  ref?: React.RefObject<TextInput | null>;\n  onComplete?: (value: number[]) => void;\n  onChange?: (value: number[]) => void;\n};\n\nconst Digit = ({ digit, isActive }: { digit: number | undefined; isActive: boolean }) => (\n  <View\n    className={cn(\"h-18 w-14 items-center justify-center rounded-lg bg-surface\", {\n      \"border-2 border-accent\": isActive,\n    })}\n  >\n    {Number.isInteger(digit) ? <Text className=\"font-bold font-mono text-3xl text-foreground\">{digit}</Text> : null}\n  </View>\n);\n\nconst regex = /^\\d$/;\n\nexport const Otp = ({ ref, onChange, maxLength, onComplete, ...props }: OtpProps) => {\n  const [value, setValue] = useState<number[]>(props.value ?? []);\n\n  const onChangeText = (newValue: string) => {\n    if (newValue.length === 0) {\n      setValue([]);\n\n      return;\n    }\n\n    const digits = newValue\n      .split(\"\")\n      .filter((char) => regex.test(char))\n      .map((char) => Number(char));\n\n    if (digits.length > maxLength) {\n      return;\n    }\n\n    setValue(digits);\n  };\n\n  useEffect(() => {\n    if (onChange) {\n      onChange(value);\n    }\n\n    if (value.length === maxLength) {\n      onComplete?.(value);\n    }\n  }, [value, maxLength, onComplete, onChange]);\n\n  const onPress = useCallback(() => {\n    ref?.current?.focus();\n  }, [ref]);\n\n  return (\n    <Pressable className=\"relative py-2\" onPress={onPress}>\n      <View className=\"flex-row justify-center gap-1\">\n        {Array.from({ length: maxLength }).map((_, idx) => (\n          <Digit digit={value.at(idx)} isActive={value.length === idx} key={`digit-${idx}`} />\n        ))}\n      </View>\n      <TextInput\n        accessibilityRole=\"text\"\n        accessible\n        autoComplete={Platform.OS === \"android\" ? \"sms-otp\" : \"one-time-code\"}\n        autoFocus\n        caretHidden\n        className=\"absolute\"\n        clearTextOnFocus\n        inputMode=\"numeric\"\n        ref={ref}\n        style={[styles.input]}\n        testID=\"otp-input\"\n        textContentType=\"oneTimeCode\"\n        {...props}\n        onChangeText={onChangeText}\n        value={value.join(\"\")}\n      />\n    </Pressable>\n  );\n};\n\nconst styles = StyleSheet.create({\n  input: {\n    /**\n     * On iOS if the input has an opacity of 0, we can't paste text into it.\n     * This is a workaround to allow pasting text into the input.\n     */\n    ...Platform.select({\n      ios: {\n        opacity: 0.02,\n        color: \"transparent\",\n      },\n      android: {\n        opacity: 0,\n      },\n    }),\n  },\n});\n",
+      "type": "registry:ui",
+      "target": "components/ui/otp.tsx"
+    }
+  ],
+  "categories": [
+    "authentication"
+  ]
+}

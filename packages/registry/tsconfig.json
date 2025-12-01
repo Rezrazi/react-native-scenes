@@ -1,0 +1,12 @@
+{
+  "extends": "@react-native-scenes/config/tsconfig.base.json",
+  "include": ["*.ts", "src"],
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}

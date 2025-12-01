@@ -1,0 +1,54 @@
+---
+title: Login
+description: An authentication screen with email/password inputs and social login options.
+---
+
+<div className="mx-auto max-w-80">
+  <video
+          controls
+          muted
+          preload="metadata"
+          className="max-h-1/12"
+  >
+    <source
+            src="https://lpseojhqkl3oe38a.public.blob.vercel-storage.com/videos/authentication_authentication-flow.mp4"
+            type="video/mp4"
+    />
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<div className="flex flex-row gap-6">
+  <div>![Screenshot1](/screenshots/authentication_login-1.png)</div>
+  <div>![Screenshot2](/screenshots/authentication_login-2.png)</div>
+</div>
+
+## Installation
+
+import {Tabs} from "fumadocs-ui/components/tabs";
+
+Ensure you have the required UI components in your project:
+
+<Tabs items={['CLI', 'Manual']}>
+  <Tab>
+    ```npm
+    npx shadcn@latest add @react-native-scenes/auth-login
+    ```
+  </Tab>
+
+  <Tab>
+    <include cwd lang="tsx" meta='title="components/blocks/auth.tsx"'>
+      ../../packages/registry/src/components/blocks/auth.tsx
+    </include>
+  </Tab>
+</Tabs>
+
+## Usage
+
+<Callout type="info" title="Note">
+  This block uses `react-hook-form`, `zod`, and `@hookform/resolvers`
+</Callout>
+
+<include cwd lang="tsx" meta='title="pages/login.tsx"'>
+  ../native/app/demo/auth/login.tsx
+</include>

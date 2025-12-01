@@ -1,5 +1,200 @@
-@import 'tailwindcss';
-@import 'uniwind';
-@import 'heroui-native/styles';
+@import "tailwindcss";
+@import "uniwind";
+@import "heroui-native/styles";
 
-@source './node_modules/heroui-native/lib';
+@source "../../node_modules/heroui-native/lib";
+@source "../../packages/registry/src";
+@source "./app/";
+@source "./assets/";
+
+@layer theme {
+  :root {
+    @variant catppuccin-latte {
+      /* Base Colors */
+      --background: oklch(0.9804 0.0039 264.5321);
+      --foreground: oklch(0.3922 0.0196 257.5495);
+
+      /* Surface: Used for non-overlay components (cards, accordions, disclosure groups) */
+      --surface: oklch(0.9608 0.0078 264.5321);
+      --surface-foreground: oklch(0.3922 0.0196 257.5495);
+
+      /* Overlay: Used for floating/overlay components (dialogs, popovers, modals, menus) */
+      --overlay: oklch(0.9412 0.0118 264.5321);
+      --overlay-foreground: oklch(0.3922 0.0196 257.5495);
+
+      --muted: oklch(0.549 0.0314 257.5495);
+
+      --default: oklch(0.8627 0.0235 264.5321);
+      --default-foreground: oklch(0.3922 0.0196 257.5495);
+
+      --accent: oklch(0.7059 0.1569 220.6708);
+      --accent-foreground: oklch(0.9804 0.0039 264.5321);
+
+      /* Form Field Defaults - Colors */
+      --field-background: oklch(0.9804 0.0039 264.5321);
+      --field-foreground: oklch(0.3922 0.0196 257.5495);
+      --field-placeholder: oklch(0.549 0.0314 257.5495);
+      --field-border: transparent;
+
+      /* Status Colors */
+      --success: oklch(0.6902 0.1647 166.1918);
+      --success-foreground: oklch(0.9804 0.0039 264.5321);
+
+      --warning: oklch(0.7843 0.149 85.8744);
+      --warning-foreground: oklch(0.3922 0.0196 257.5495);
+
+      --danger: oklch(0.6118 0.1804 12.173);
+      --danger-foreground: oklch(0.9804 0.0039 264.5321);
+
+      /* Component Colors */
+      --segment: oklch(0.9608 0.0078 264.5321);
+      --segment-foreground: oklch(0.3922 0.0196 257.5495);
+
+      /* Misc Colors */
+      --border: oklch(0.8235 0.0196 264.5321);
+      --divider: oklch(0.8235 0.0196 264.5321);
+      --link: oklch(0.6275 0.1686 275.3204);
+    }
+
+    @variant catppuccin-mocha {
+      /* Base Colors */
+      --background: oklch(0.2353 0.0353 264.6816);
+      --foreground: oklch(0.8784 0.0157 267.5223);
+
+      /* Surface: Used for non-overlay components (cards, accordions, disclosure groups) */
+      --surface: oklch(0.2667 0.0392 264.6816);
+      --surface-foreground: oklch(0.8784 0.0157 267.5223);
+
+      /* Overlay: Used for floating/overlay components (dialogs, popovers, modals, menus) */
+      --overlay: oklch(0.3137 0.0431 264.6816);
+      --overlay-foreground: oklch(0.8784 0.0157 267.5223);
+
+      --muted: oklch(0.7137 0.0196 267.5223);
+
+      --default: oklch(0.4078 0.051 264.6816);
+      --default-foreground: oklch(0.8784 0.0157 267.5223);
+
+      --accent: oklch(0.7961 0.149 212.6299);
+      --accent-foreground: oklch(0.2353 0.0353 264.6816);
+
+      /* Form Field Defaults - Colors */
+      --field-background: oklch(0.3608 0.0471 264.6816);
+      --field-foreground: oklch(0.8784 0.0157 267.5223);
+      --field-placeholder: oklch(0.7137 0.0196 267.5223);
+      --field-border: transparent;
+
+      /* Status Colors */
+      --success: oklch(0.7686 0.1569 166.1918);
+      --success-foreground: oklch(0.2353 0.0353 264.6816);
+
+      --warning: oklch(0.8471 0.1412 85.8744);
+      --warning-foreground: oklch(0.2353 0.0353 264.6816);
+
+      --danger: oklch(0.6902 0.1686 12.173);
+      --danger-foreground: oklch(0.2353 0.0353 264.6816);
+
+      /* Component Colors */
+      --segment: oklch(0.3608 0.0471 264.6816);
+      --segment-foreground: oklch(0.8784 0.0157 267.5223);
+
+      /* Misc Colors */
+      --border: oklch(0.3608 0.0471 264.6816);
+      --divider: oklch(0.3608 0.0471 264.6816);
+      --link: oklch(0.7686 0.1804 267.9485);
+    }
+
+    @variant claude-light {
+      /* Base Colors */
+      --background: oklch(0.9818 0.0054 95.0986);
+      --foreground: oklch(0.3438 0.0269 95.7226);
+
+      /* Surface: Used for non-overlay components (cards, accordions, disclosure groups) */
+      --surface: oklch(0.9818 0.0054 95.0986);
+      --surface-foreground: oklch(0.3438 0.0269 95.7226);
+
+      /* Overlay: Used for floating/overlay components (dialogs, popovers, modals, menus) */
+      --overlay: oklch(1 0 0);
+      --overlay-foreground: oklch(0.3438 0.0269 95.7226);
+
+      --muted: oklch(0.6059 0.0075 97.4233);
+
+      --default: oklch(0.9245 0.0138 92.9892);
+      --default-foreground: oklch(0.4334 0.0177 98.6048);
+
+      --accent: oklch(0.5608 0.1348 42.0584);
+      --accent-foreground: oklch(1 0 0);
+
+      /* Form Field Defaults - Colors */
+      --field-background: oklch(0.9818 0.0054 95.0986);
+      --field-foreground: oklch(0.3438 0.0269 95.7226);
+      --field-placeholder: oklch(0.6059 0.0075 97.4233);
+      --field-border: transparent;
+
+      /* Status Colors */
+      --success: hsl(142.1 76.2% 36.3%);
+      --success-foreground: hsl(0 0% 100%);
+
+      --warning: hsl(38 92% 50%);
+      --warning-foreground: hsl(0 0% 3.9%);
+
+      --danger: hsl(0 84.2% 60.2%);
+      --danger-foreground: hsl(0 0% 98%);
+
+      /* Component Colors */
+      --segment: oklch(0.9818 0.0054 95.0986);
+      --segment-foreground: oklch(0.3438 0.0269 95.7226);
+
+      /* Misc Colors */
+      --border: oklch(0.8847 0.0069 97.3627);
+      --divider: oklch(0.8847 0.0069 97.3627);
+      --link: oklch(0.6171 0.1375 39.0427);
+    }
+
+    @variant claude-dark {
+      /* Base Colors */
+      --background: oklch(0.2679 0.0036 106.6427);
+      --foreground: oklch(0.8074 0.0142 93.0137);
+
+      /* Surface: Used for non-overlay components (cards, accordions, disclosure groups) */
+      --surface: oklch(0.2679 0.0036 106.6427);
+      --surface-foreground: oklch(0.8074 0.0142 93.0137);
+
+      /* Overlay: Used for floating/overlay components (dialogs, popovers, modals, menus) */
+      --overlay: oklch(0.3085 0.0035 106.6039);
+      --overlay-foreground: oklch(0.8074 0.0142 93.0137);
+
+      --muted: oklch(0.7713 0.0169 99.0657);
+
+      --default: oklch(0.3085 0.0035 106.6039);
+      --default-foreground: oklch(0.9818 0.0054 95.0986);
+
+      --accent: oklch(0.5608 0.1348 42.0584);
+      --accent-foreground: oklch(1 0 0);
+
+      /* Form Field Defaults - Colors */
+      --field-background: oklch(0.2213 0.0038 106.707);
+      --field-foreground: oklch(0.8074 0.0142 93.0137);
+      --field-placeholder: oklch(0.7713 0.0169 99.0657);
+      --field-border: transparent;
+
+      /* Status Colors */
+      --success: hsl(142.1 70.6% 45.3%);
+      --success-foreground: hsl(0 0% 3.9%);
+
+      --warning: hsl(38 92% 50%);
+      --warning-foreground: hsl(0 0% 3.9%);
+
+      --danger: hsl(0 70.9% 59.4%);
+      --danger-foreground: hsl(0 0% 98%);
+
+      /* Component Colors */
+      --segment: oklch(0.2679 0.0036 106.6427);
+      --segment-foreground: oklch(0.8074 0.0142 93.0137);
+
+      /* Misc Colors */
+      --border: oklch(0.3618 0.0101 106.8928);
+      --divider: oklch(0.3618 0.0101 106.8928);
+      --link: oklch(0.6724 0.1308 38.7559);
+    }
+  }
+}

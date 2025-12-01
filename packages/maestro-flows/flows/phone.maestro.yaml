@@ -1,0 +1,15 @@
+appId: host.exp.Exponent
+tags:
+  - authentication
+  - login
+---
+- launchApp
+- tapOn: react-native-scenes
+- tapOn: Phone number login
+- startRecording: authentication_authentication-phone
+- takeScreenshot: authentication_phone-1
+- tapOn: Send verification code
+- takeScreenshot: authentication_phone-2
+- tapOn: "Verify code"
+- stopRecording
+- stopApp

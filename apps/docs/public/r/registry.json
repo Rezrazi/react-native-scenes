@@ -1,0 +1,170 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "react-native-scenes",
+  "homepage": "https://react-native-scenes.vercel.app",
+  "items": [
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "Utilities",
+      "description": "A collection of utility functions",
+      "files": [
+        {
+          "path": "src/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "lib/utils.ts"
+        }
+      ],
+      "dependencies": [
+        "heroui-native",
+        "react-native-keyboard-controller",
+        "react-native-safe-area-context",
+        "react-native-reanimated"
+      ],
+      "registryDependencies": []
+    },
+    {
+      "name": "auth",
+      "type": "registry:ui",
+      "title": "Auth",
+      "description": "A reusable authentication layout component for building auth screens",
+      "files": [
+        {
+          "path": "src/components/blocks/auth.tsx",
+          "type": "registry:ui",
+          "target": "components/blocks/auth.tsx"
+        }
+      ],
+      "registryDependencies": ["@react-native-scenes/utils"]
+    },
+    {
+      "name": "otp",
+      "type": "registry:ui",
+      "title": "OTP",
+      "description": "An OTP input component for verification codes",
+      "files": [
+        {
+          "path": "src/components/ui/otp.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/otp.tsx"
+        }
+      ],
+      "registryDependencies": ["@react-native-scenes/utils"]
+    },
+    {
+      "name": "auth-login",
+      "type": "registry:block",
+      "title": "Login",
+      "description": "A professional authentication screen with email/password inputs and social login options for Apple and Google",
+      "files": [
+        {
+          "path": "src/components/blocks/auth.tsx",
+          "type": "registry:ui",
+          "target": "components/blocks/auth.tsx"
+        }
+      ],
+      "categories": ["authentication"],
+      "registryDependencies": ["@react-native-scenes/utils"]
+    },
+    {
+      "name": "auth-register",
+      "type": "registry:block",
+      "title": "Register",
+      "description": "A registration screen with name, email, and password inputs plus social signup options",
+      "files": [
+        {
+          "path": "src/components/blocks/auth.tsx",
+          "type": "registry:ui",
+          "target": "components/blocks/auth.tsx"
+        }
+      ],
+      "categories": ["authentication"],
+      "registryDependencies": ["@react-native-scenes/utils"]
+    },
+    {
+      "name": "auth-phone-number",
+      "type": "registry:block",
+      "title": "Phone Number Login",
+      "description": "A phone number authentication screen with country code selector",
+      "files": [
+        {
+          "path": "src/components/blocks/auth.tsx",
+          "type": "registry:ui",
+          "target": "components/blocks/auth.tsx"
+        }
+      ],
+      "categories": ["authentication"],
+      "registryDependencies": ["@react-native-scenes/utils"]
+    },
+    {
+      "name": "auth-otp",
+      "type": "registry:block",
+      "title": "OTP Verification",
+      "description": "An OTP verification screen for validating phone numbers or email addresses",
+      "files": [
+        {
+          "path": "src/components/blocks/auth.tsx",
+          "type": "registry:ui",
+          "target": "components/blocks/auth.tsx"
+        },
+        {
+          "path": "src/components/ui/otp.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/otp.tsx"
+        }
+      ],
+      "categories": ["authentication"],
+      "registryDependencies": ["@react-native-scenes/utils"]
+    },
+    {
+      "name": "auth-forgot-password",
+      "type": "registry:block",
+      "title": "Forgot Password",
+      "description": "A password reset screen for sending recovery links via email",
+      "files": [
+        {
+          "path": "src/components/blocks/auth.tsx",
+          "type": "registry:ui",
+          "target": "components/blocks/auth.tsx"
+        }
+      ],
+      "categories": ["authentication"],
+      "registryDependencies": ["@react-native-scenes/utils"]
+    },
+    {
+      "name": "auth-bundle",
+      "type": "registry:block",
+      "title": "Authentication Bundle",
+      "description": "Complete authentication flow including login, register, phone verification, OTP, and password reset screens",
+      "files": [
+        {
+          "path": "src/components/blocks/auth.tsx",
+          "type": "registry:ui",
+          "target": "components/blocks/auth.tsx"
+        },
+        {
+          "path": "src/components/ui/otp.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/otp.tsx"
+        }
+      ],
+      "categories": ["authentication"],
+      "registryDependencies": ["@react-native-scenes/utils"]
+    },
+    {
+      "name": "onboarding-slider",
+      "type": "registry:block",
+      "title": "Simple Onboarding Slider",
+      "description": "A simple onboarding slider component",
+      "files": [
+        {
+          "path": "src/components/blocks/onboarding-slider.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/onboarding-slider.tsx"
+        }
+      ],
+      "registryDependencies": ["@react-native-scenes/utils"],
+      "dependencies": ["react-native-reanimated"]
+    }
+  ]
+}

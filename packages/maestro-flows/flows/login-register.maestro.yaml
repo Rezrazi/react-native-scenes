@@ -1,0 +1,19 @@
+appId: host.exp.Exponent
+tags:
+  - authentication
+  - login
+---
+- launchApp
+- tapOn: react-native-scenes
+- tapOn: Login
+- startRecording: authentication_authentication-flow
+- takeScreenshot: authentication_login-1
+- tapOn: Sign In
+- takeScreenshot: authentication_login-2
+- tapOn: "Create a new account"
+- tapOn: "Create an account"
+- tapOn: "Login using an existing account instead?"
+- tapOn: "Trouble accessing your account?"
+- tapOn: "Send recovery link"
+- stopRecording
+- stopApp

@@ -1,0 +1,9 @@
+{
+  "extends": "@react-native-scenes/config/tsconfig.base.json",
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "ESNext"
+  },
+  "include": ["*.ts", "src"],
+  "exclude": ["node_modules"]
+}

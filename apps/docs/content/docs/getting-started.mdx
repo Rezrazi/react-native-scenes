@@ -1,0 +1,67 @@
+---
+title: Getting Started
+description: Get started with react-native-scenes and build beautiful React Native apps faster
+icon: BookOpen
+---
+
+
+import {Callout} from "fumadocs-ui/components/callout";
+
+## What is react-native-scenes?
+
+react-native-scenes is an open-source component library for React Native, inspired by [shadcn/ui](https://ui.shadcn.com). It provides ready-to-use screens, scenes, and UI blocks that you can add to your React Native projects.
+
+Instead of shipping components as an npm package, react-native-scenes follows the shadcn philosophy: components are copied directly into your project, giving you full ownership and control. You can install them via the shadcn CLI or simply copy and paste the code.
+
+<Callout type="info">
+  **Compatible with shadcn Registry**: react-native-scenes implements the shadcn registry specification, making it compatible with
+  the shadcn CLI tooling.
+</Callout>
+
+## Philosophy
+
+This is not a traditional component library. You don't install it as a dependency. Instead, you pick the scenes and components you need, add them to your project, and adapt them to your requirements.
+
+- **Copy-paste friendly**: Browse the components and copy the code directly into your project
+- **CLI support**: Use the shadcn CLI to quickly add components to your app
+- **Full ownership**: Components live in your codebase - modify them however you need
+- **No vendor lock-in**: No package updates to worry about, no breaking changes
+
+## Preview
+You may preview the project and explore the components using Expo GO, scan the QR code below to open it in the Expo Go app.
+
+<img src="https://qr.expo.dev/eas-update?slug=exp&projectId=22f271a2-444f-4105-b6f9-f228a0c8686a&groupId=f1fd5f2f-3d77-49b1-9fd2-6511f1985c98&host=u.expo.dev" className="size-64"/>
+
+[Open in Expo Go](exp+://expo-development-client/?url=https://u.expo.dev/22f271a2-444f-4105-b6f9-f228a0c8686a/group/f1fd5f2f-3d77-49b1-9fd2-6511f1985c98)
+
+## Base Components
+
+react-native-scenes is built on top of base UI components from [React Native Reusables](https://reactnativereusables.com/docs). These components have been slightly modified and adapted to work seamlessly with the blocks in this library.
+
+## Why react-native-scenes?
+
+- **Boost development velocity**: Skip the boilerplate and start with production-ready screens
+- **Fully customizable**: Components use Tailwind CSS classes - modify styles to match your brand
+- **Install only what you need**: Add scenes individually - no bloated dependencies
+- **Own your code**: Components are copied into your project, giving you full control
+- **Modern stack**: Built with TypeScript, Tailwind CSS v4, and React Native best practices
+
+## Prerequisites
+
+Before you begin, ensure your React Native project has **Tailwind CSS** configured. react-native-scenes requires either:
+
+- **[Uniwind](https://docs.uniwind.dev)** (Recommended) - Faster and compatible with Tailwind CSS v4
+- **[NativeWind](https://www.nativewind.dev)** - Alternative Tailwind CSS implementation
+
+<Callout type="warn">
+  **Uniwind is recommended** for better performance and Tailwind CSS v4 compatibility. If you haven't set up Tailwind
+  CSS yet, follow the [Uniwind installation guide](https://docs.uniwind.dev/getting-started/installation).
+</Callout>
+
+## Credits
+
+react-native-scenes builds upon the excellent work of the React Native community:
+
+- **[heroui-native](https://github.com/heroui-inc/heroui-native)** - Our base UI components are built on top of this library
+
+

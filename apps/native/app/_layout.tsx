@@ -1,37 +1,37 @@
-import "@/global.css";
+import "../global.css";
 
+import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
 import { Stack } from "expo-router";
 import { HeroUINativeProvider } from "heroui-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { KeyboardProvider } from "react-native-keyboard-controller";
-import { AppThemeProvider } from "@/contexts/app-theme-context";
+import { configureReanimatedLogger, ReanimatedLogLevel } from "react-native-reanimated";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { useUniwind } from "uniwind";
+import { AppThemeProvider } from "../contexts/app-theme-context";
 
-export const unstable_settings = {
-	initialRouteName: "(drawer)",
-};
-
-function StackLayout() {
-	return (
-		<Stack screenOptions={{}}>
-			<Stack.Screen name="(drawer)" options={{ headerShown: false }} />
-			<Stack.Screen
-				name="modal"
-				options={{ title: "Modal", presentation: "modal" }}
-			/>
-		</Stack>
-	);
-}
+configureReanimatedLogger({
+  level: ReanimatedLogLevel.error,
+});
 
 export default function Layout() {
-	return (
-		<GestureHandlerRootView style={{ flex: 1 }}>
-			<KeyboardProvider>
-				<AppThemeProvider>
-					<HeroUINativeProvider>
-						<StackLayout />
-					</HeroUINativeProvider>
-				</AppThemeProvider>
-			</KeyboardProvider>
-		</GestureHandlerRootView>
-	);
+  const theme = useUniwind();
+
+  return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <KeyboardProvider>
+        <SafeAreaProvider>
+          <ThemeProvider value={theme.theme === "dark" ? DarkTheme : DefaultTheme}>
+            <AppThemeProvider>
+              <HeroUINativeProvider>
+                <Stack screenOptions={{ headerShown: false }}>
+                  <Stack.Screen name="index" />
+                </Stack>
+              </HeroUINativeProvider>
+            </AppThemeProvider>
+          </ThemeProvider>
+        </SafeAreaProvider>
+      </KeyboardProvider>
+    </GestureHandlerRootView>
+  );
 }

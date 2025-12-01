@@ -1,0 +1,177 @@
+---
+title: Themes
+description: Customize the look and feel of your components
+icon: SwatchBook
+---
+
+import {Cards} from "fumadocs-ui/components/card";
+import {ExternalLink} from "lucide-react";
+
+The available components and blocks use Tailwind CSS classes, following a convention inspired by [Shadcn](https://ui.shadcn.com/docs/theming).
+You may customize the theme by editing your main stylesheet to include your own colors and fonts.
+
+<div className="flex flex-row gap-6">
+  <div>![Screenshot1](/screenshots/theme-claude-light.png)</div>
+  <div>![Screenshot1](/screenshots/theme-claude-dark.png)</div>
+  <div>![Screenshot1](/screenshots/theme-catppuccin-mocha.png)</div>
+</div>
+
+## How theme selection works
+Depending on the Tailwind CSS processor you are using (e.g. Uniwind, Nativewind), you should have a main stylesheet that includes the Tailwind CSS base styles and classes.
+You can then add your own customizations to this stylesheet based on the instructions provided by the processor you are using.
+
+<Cards>
+  <Card title="Themes with Uniwind" href="https://docs.uniwind.dev/theming/basics" icon={<ExternalLink />}>
+    View documentation on Uniwind website
+  </Card>
+  <Card title="Themes with Nativewind" href="https://www.nativewind.dev/docs/guides/themes" icon={<ExternalLink />}>
+    View documentation on Nativewind website
+  </Card>
+</Cards>
+
+## Customizing the base theme for Uniwind
+Upon installing and using the components, you should have an entries for the following variables:
+
+```css title="global.css"
+@layer theme {
+  :root {
+    @variant light {
+      /* Base Colors */
+      --color-background: hsl(0 0% 100%);
+      --color-foreground: hsl(0 0% 3.9%);
+
+      /* Surface/Card Colors */
+      --color-card: hsl(0 0% 100%);
+      --color-card-foreground: hsl(0 0% 3.9%);
+
+      /* Overlay/Popover Colors */
+      --color-popover: hsl(0 0% 100%);
+      --color-popover-foreground: hsl(0 0% 3.9%);
+
+      /* Primary Colors */
+      --color-primary: hsl(0 0% 9%);
+      --color-primary-foreground: hsl(0 0% 98%);
+
+      /* Secondary Colors */
+      --color-secondary: hsl(0 0% 96.1%);
+      --color-secondary-foreground: hsl(0 0% 9%);
+
+      /* Muted Colors */
+      --color-muted: hsl(0 0% 96.1%);
+      --color-muted-foreground: hsl(0 0% 45.1%);
+
+      /* Accent Colors */
+      --color-accent: hsl(0 0% 96.1%);
+      --color-accent-foreground: hsl(0 0% 9%);
+
+      /* Destructive Colors */
+      --color-destructive: hsl(0 84.2% 60.2%);
+      --color-destructive-foreground: hsl(0 0% 98%);
+
+      /* Form/Input Colors */
+      --color-input: hsl(0 0% 89.8%);
+      --color-border: hsl(0 0% 89.8%);
+      --color-ring: hsl(0 0% 63%);
+
+      /* Chart Colors */
+      --color-chart-1: hsl(12 76% 61%);
+      --color-chart-2: hsl(173 58% 39%);
+      --color-chart-3: hsl(197 37% 24%);
+      --color-chart-4: hsl(43 74% 66%);
+      --color-chart-5: hsl(27 87% 67%);
+
+      /* Border Radius Variants */
+      --radius-lg: var(--radius);
+      --radius-md: calc(var(--radius) - 2px);
+      --radius-sm: calc(var(--radius) - 4px);
+    }
+  }
+}
+```
+## Adding a custom theme
+To add a custom theme, you can follow your Tailwind CSS processor's instructions to add a new theme entry.
+
+Here is an example using Uniwind creating a new theme called `catppuccin-latte`:
+
+### Custom CSS variables
+```css title="global.css"
+@layer theme {
+  :root {
+    /** ... other variants ... **/
+
+    @variant catppuccin-latte {
+      /* Base Colors */
+      --background: oklch(0.9804 0.0039 264.5321);
+      --foreground: oklch(0.3922 0.0196 257.5495);
+
+      /* Surface: Used for non-overlay components (cards, accordions, disclosure groups) */
+      --surface: oklch(0.9608 0.0078 264.5321);
+      --surface-foreground: oklch(0.3922 0.0196 257.5495);
+
+      /* Overlay: Used for floating/overlay components (dialogs, popovers, modals, menus) */
+      --overlay: oklch(0.9412 0.0118 264.5321);
+      --overlay-foreground: oklch(0.3922 0.0196 257.5495);
+
+      --muted: oklch(0.549 0.0314 257.5495);
+
+      --default: oklch(0.8627 0.0235 264.5321);
+      --default-foreground: oklch(0.3922 0.0196 257.5495);
+
+      --accent: oklch(0.7059 0.1569 220.6708);
+      --accent-foreground: oklch(0.9804 0.0039 264.5321);
+
+      /* Form Field Defaults - Colors */
+      --field-background: oklch(0.9804 0.0039 264.5321);
+      --field-foreground: oklch(0.3922 0.0196 257.5495);
+      --field-placeholder: oklch(0.549 0.0314 257.5495);
+      --field-border: transparent;
+
+      /* Status Colors */
+      --success: oklch(0.6902 0.1647 166.1918);
+      --success-foreground: oklch(0.9804 0.0039 264.5321);
+
+      --warning: oklch(0.7843 0.149 85.8744);
+      --warning-foreground: oklch(0.3922 0.0196 257.5495);
+
+      --danger: oklch(0.6118 0.1804 12.173);
+      --danger-foreground: oklch(0.9804 0.0039 264.5321);
+
+      /* Component Colors */
+      --segment: oklch(0.9608 0.0078 264.5321);
+      --segment-foreground: oklch(0.3922 0.0196 257.5495);
+
+      /* Misc Colors */
+      --border: oklch(0.8235 0.0196 264.5321);
+      --divider: oklch(0.8235 0.0196 264.5321);
+      --link: oklch(0.6275 0.1686 275.3204);
+    }
+  }
+}
+```
+
+### Configuring Metro
+```js title="metro.config.js"
+const uniwindConfig = withUniwindConfig(config, {
+  cssEntryFile: "./global.css",
+  dtsFile: "./uniwind-types.d.ts",
+  extraThemes: [
+    "catppuccin-latte"
+  ]
+});
+```
+
+### Using the theme
+```jsx title="app/_layout.tsx
+export default function Layout() {
+  Uniwind.setTheme("catppuccin-latte");
+}
+```
+
+<Callout type="info" title="Note">
+  You will most likely need to manually handle light and dark modes by using the your newly defined variants. The status bar theme may need to be handled manually as well.
+</Callout>
+
+
+### Resources
+- [Shadcn themes](https://ui.shadcn.com/themes)
+- [Tweakcn custom theme generator](https://tweakcn.com/)

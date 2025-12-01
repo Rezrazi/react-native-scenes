@@ -1,0 +1,70 @@
+---
+title: Onboarding Slider
+description: A simple and sleek and interactive onboarding slider for React Native apps, designed to guide users through key features with smooth transitions and engaging visuals.
+---
+
+
+import {Tabs} from "fumadocs-ui/components/tabs";
+
+<div className="mx-auto max-w-80">
+  <video
+          controls
+          muted
+          preload="metadata"
+          className="max-h-1/12"
+  >
+    <source
+            src="https://lpseojhqkl3oe38a.public.blob.vercel-storage.com/videos/onboarding_onboarding-slider.mp4"
+            type="video/mp4"
+    />
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<div className="grid grid-cols-3 gap-6">
+  <div>![Screenshot1](/screenshots/onboarding_onboarding-slider-1.png)</div>
+  <div>![Screenshot2](/screenshots/onboarding_onboarding-slider-2.png)</div>
+  <div>![Screenshot3](/screenshots/onboarding_onboarding-slider-3.png)</div>
+</div>
+
+
+## Installation
+
+Ensure you have the required UI components in your project:
+
+<Tabs items={['CLI', 'Manual']}>
+  <Tab>
+    ```npm
+    npx shadcn@latest add @react-native-scenes/onboarding-slider
+    ```
+  </Tab>
+
+  <Tab>
+    <include cwd lang="tsx" meta='title="components/blocks/onboarding-slider.tsx"'>
+      ../../packages/registry/src/components/blocks/onboarding-slider.tsx
+    </include>
+  </Tab>
+</Tabs>
+
+## Usage
+
+<Callout type="info" title="Note">
+  This example uses `@stepperize/react` `expo-image` and `react-native-safe-area-context`.
+</Callout>
+
+<Callout type="warning" title="Images are not included">
+  Make sure to replace the image URIs with your own images or local assets to fit your app's design.
+</Callout>
+
+<include cwd lang="tsx" meta='title="pages/onboarding.tsx"'>
+  ../native/app/demo/onboarding/onboarding-slider.tsx
+</include>
+
+## API Reference
+
+### OnboardingSliderProps
+<AutoTypeTable path="../../packages/registry/src/components/blocks/onboarding-slider.tsx"
+               name="OnboardingSliderProps"/>
+
+### Step
+<AutoTypeTable path="../../packages/registry/src/components/blocks/onboarding-slider.tsx" name="Step"/>

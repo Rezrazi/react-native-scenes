@@ -1,0 +1,77 @@
+name: eas:preview
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  update:
+    name: EAS Update
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Check for EXPO_TOKEN
+        run: |
+          if [ -z "${{ secrets.EXPO_TOKEN }}" ]; then
+            echo "You must provide an EXPO_TOKEN secret linked to this project's Expo account. Learn more: https://docs.expo.dev/eas-update/github-actions"
+            exit 1
+          fi
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Cache Bun global cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
+
+      - name: Cache root node_modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+          key: ${{ runner.os }}-root-node_modules-${{ hashFiles('bun.lockb') }}
+          restore-keys: |
+            ${{ runner.os }}-root-node_modules-
+
+      - name: Install dependencies (root)
+        run: bun install
+
+      - name: Cache apps/native node_modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            apps/native/node_modules
+          key: ${{ runner.os }}-native-node_modules-${{ hashFiles('apps/native/bun.lockb') }}
+          restore-keys: |
+            ${{ runner.os }}-native-node_modules-
+
+      - name: Install dependencies (apps/native)
+        working-directory: apps/native
+        run: bun install
+
+      - name: Setup EAS
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Create preview
+        uses: expo/expo-github-action/preview@v8
+        with:
+          working-directory: apps/native
+          command: eas update --auto

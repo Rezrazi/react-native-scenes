@@ -1,0 +1,13 @@
+{
+  "title": "Documentation",
+  "root": true,
+  "pages": [
+    "---Introduction---",
+    "getting-started",
+    "installation",
+    "themes",
+    "---Blocks---",
+    "onboarding",
+    "authentication"
+  ]
+}
